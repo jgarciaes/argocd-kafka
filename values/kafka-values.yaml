@@ -1,0 +1,10 @@
+    helm:
+      parameters:
+        - name: controller.replicaCount
+          value: "1"
+        - name: controller.controllerOnly
+          value: "false"
+        - name: sasl.client.users
+          value: '{user1}'
+        - name: sasl.client.passwords
+          value: '{test1234}'
