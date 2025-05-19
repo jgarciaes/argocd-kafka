@@ -2,16 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kafka
-  namespace: argocd  # Argo CD's namespace
+  namespace: argocd 
 spec:
   project: default
   source:
-    repoURL: https://charts.bitnami.com/bitnami  # Helm chart repo
+    repoURL: https://charts.bitnami.com/bitnami 
     chart: kafka
-    targetRevision: 26.1.2  # whatever chart version you want
+    targetRevision: 26.1.2  
     helm:
+      insecureSkipTLSVerify: true               
       valueFiles:
-        - ../../values/kafka-values.yaml  # path to your values
+        - ../../values/kafka-values.yaml       
   destination:
     server: https://kubernetes.default.svc
     namespace: kafka
